@@ -1,6 +1,7 @@
 <?php
 
 use Core\Errors\ValidationException;
+use Core\Errors\FileUploadException;
 use Core\Session;
 
 const BASE_PATH = __DIR__ . "/../";
@@ -21,10 +22,14 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 try {
   $router->route($uri, $method);
 } catch (ValidationException $e) {
+  dd($e->old);
   Session::flash('errors', $e->errors);
   Session::flash('old', $e->old);
   // in case of redirecting, we need to be dynamic(using $_SERVER['HTTP_REFERER'] that would be "localhost:8888/login")
   // we are redirecting to previous url
+  return redirect($router->previousUrl());
+} catch (FileUploadException $e) {
+  Session::flash('errors', $e->errors);
   return redirect($router->previousUrl());
 }
 

@@ -15,7 +15,9 @@ class CreateUsersTable
     return Schema::createTable('users', [
       'id INT AUTO_INCREMENT PRIMARY KEY ',
       'email  VARCHAR(60) NOT NULL',
-      'password VARCHAR(60) NOT NULL'
+      'password VARCHAR(60) NOT NULL',
+      'created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP',
+      'updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP'
     ]);
   }
 

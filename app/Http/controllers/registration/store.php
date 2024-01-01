@@ -5,8 +5,6 @@ use Core\Authenticator;
 use Core\RegistrationService;
 use Http\Forms\SignUpForm;
 
-$db = App::resolve("mysql");
-
 $email = $_POST['email'];
 $password = $_POST['password'];
 $attributes = [

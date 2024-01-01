@@ -69,3 +69,32 @@ function my_echo($message)
   echo $message . PHP_EOL;
 }
 
+function removeDirectory($dir)
+{
+  if (!is_dir($dir)) {
+    return false;
+  }
+
+  // Open the directory
+  $files = scandir($dir);
+
+  // Iterate through each file/directory in the directory
+  foreach ($files as $file) {
+    // Skip current and parent directory pointers
+    if ($file != "." && $file != "..") {
+      // If it's a directory, recursively remove it
+      if (is_dir($dir . '/' . $file)) {
+        removeDirectory($dir . '/' . $file);
+      } else {
+        // If it's a file, unlink (delete) it
+        unlink($dir . '/' . $file);
+      }
+    }
+  }
+
+  // After all files and subdirectories have been removed, remove the main directory
+  rmdir($dir);
+
+  return true;
+}
+

@@ -7,6 +7,15 @@
         <?= $heading ?? 'My App' ?>
     </title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <?php
+    if (isset($additionalJsLinks) && !empty($additionalJsLinks)) {
+        foreach ($additionalJsLinks as $link) {
+            echo $link;
+        }
+    }
+    ?>
+
 </head>
 
 <body class="h-full">
