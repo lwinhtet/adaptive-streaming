@@ -51,8 +51,6 @@ php migrate.php --create MyNewMigration
 
 The script reads environment variables from a `.env` file using the `vlucas/phpdotenv` package. Ensure that your database connection details are correctly configured in the `.env` file.
 
-Certainly! Below is the section you can include in your README file to guide users on customizing their own `.env` file with their database and application information:
-
 ## Customizing Environment Variables
 
 To use the `migrate.php` script in your local development environment, you need to set up your own `.env` file. Below is an example of a basic `.env` file with placeholders for your specific information:
