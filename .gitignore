@@ -3,9 +3,9 @@ app/vendor/
 
 app/node_modules/
 
-/app/.env
+app/.env
 
-/docs
+docs
 
 app/public/adaptive_streaming
 
