@@ -1,6 +1,14 @@
 # Ignore vendor directory for Composer dependencies
 app/vendor/
 
+app/node_modules/
+
+app/.env
+
+docs/
+
+app/public/adaptive_streaming
+
 # Ignore logs
 # /log/
 
